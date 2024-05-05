@@ -1,1 +1,1 @@
-https://hub.docker.com/repository/docker/serratalas/deneme-api/general
+https://hub.docker.com/r/serratalas/deneme-api/tags
