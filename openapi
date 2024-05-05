@@ -1,0 +1,274 @@
+{
+  {
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Kitap API'si",
+    "description": "Kitap ekleme, okuma, güncelleme ve silme işlemlerini sunan bir API",
+    "version": "1.0.0"
+  },
+  "servers": [
+    {
+      "url": "{server_url}/api/Book"
+    }
+  ],
+  "paths": {
+    "/GetBooks": {
+      "get": {
+        "summary": "Tüm kitapları listeler",
+        "description": "Tüm kitapların bir listesini JSON formatında döner",
+        "responses": {
+          "200": {
+            "description": "Başarılı",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/GetBookResponse"
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "İstek geçersiz"
+          }
+        }
+      }
+    },
+    "/GetBookById/{bookId": {
+      "get": {
+        "summary": "Belirli bir kitap ID'sine göre kitap bilgisini getirir",
+        "description": "Belirtilen kitap ID'sine sahip kitabın bilgilerini JSON formatında döner",
+        "parameters": [
+          {
+            "name": "bookId",
+            "in": "path",
+            "required": true,
+            "type": "integer",
+            "description": "Kitap ID'si"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Başarılı",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetBookResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "İstek geçersiz"
+          },
+          "404": {
+            "description": "Kitap bulunamadı"
+          }
+        }
+      }
+    },
+    "/AddBook": {
+      "post": {
+        "summary": "Yeni bir kitap ekler",
+        "description": "Yeni bir kitap nesnesi alır ve onu veri tabanına ekler",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AddBookRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Başarılı",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AddBookResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "İstek geçersiz"
+          },
+          "422": {
+            "description": "Kitap zaten mevcut"
+          }
+        }
+      }
+    },
+    "/UpdateBook": {
+      "put": {
+        "summary": "Belirli bir kitap ID'sine sahip kitabı günceller",
+        "description": "Belirtilen kitap ID'sine sahip kitabın bilgilerini günceller",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateBookRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Başarılı",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UpdateBookRequest"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "İstek geçersiz"
+          },
+          "404": {
+            "description": "
+
+},
+,
+{
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Kategori API'si",
+    "description": "Kategori ekleme, okuma, güncelleme ve silme işlemlerini sunan bir API",
+    "version": "1.0.0"
+  },
+  "servers": [
+    {
+      "url": "{server_url}/api/Category"
+    }
+  ],
+  "paths": {
+    "/GetCategories": {
+      "get": {
+        "summary": "Tüm kategorileri listeler",
+        "description": "Tüm kategorilerin bir listesini JSON formatında döner",
+        "responses": {
+          "200": {
+            "description": "Başarılı",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/GetCategoryResponse"
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "İstek geçersiz"
+          }
+        }
+      }
+    },
+    "/GetCategoryById/{categoryId}": {
+      "get": {
+        "summary": "Belirli bir kategori ID'sine göre kategori bilgisini getirir",
+        "description": "Belirtilen kategori ID'sine sahip kategorinin bilgilerini JSON formatında döner",
+        "parameters": [
+          {
+            "name": "categoryId",
+            "in": "path",
+            "required": true,
+            "type": "integer",
+            "description": "Kategori ID'si"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Başarılı",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GetCategoryResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "İstek geçersiz"
+          },
+          "404": {
+            "description": "Kategori bulunamadı"
+          }
+        }
+      }
+    },
+    "/AddCategory": {
+      "post": {
+        "summary": "Yeni bir kategori ekler",
+        "description": "Yeni bir kategori nesnesi alır ve onu veri tabanına ekler",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AddCategoryRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Başarılı",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AddCategoryResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "İstek geçersiz"
+          },
+          "422": {
+            "description": "Kategori zaten mevcut"
+          }
+        }
+      }
+    },
+    "/UpdateCategory": {
+      "put": {
+        "summary": "Belirli bir kategori ID'sine sahip kategoriyi günceller",
+        "description": "Belirtilen kategori ID'sine sahip kategorinin bilgilerini günceller",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateCategoryRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Başarılı",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UpdateCategoryRequest"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "İstek geçersiz"
+          },
+          "404": {
+            "description": "Kategori bulunama
+}
