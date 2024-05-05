@@ -1,1 +1,1 @@
-# oss-api
+# deneme-api
